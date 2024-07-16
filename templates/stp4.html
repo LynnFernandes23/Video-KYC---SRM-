@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Charm' rel='stylesheet'>
+    <title>KYC Verification Process</title>
+    <style>
+        .buttonG {
+            background: linear-gradient(to right, #167ac6, #ff049b, #9200de, #ff049b, #167ac6);
+            font-size: 16px;
+            padding: 15px;
+            background-size: 500% 100%;
+            transition: all .6s ease-in-out;
+            white-space: normal;
+            border-radius: 3px;
+            border-width: 0;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0 20px;
+            font-weight: bold;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+        
+        .buttonG:hover {
+            background-position: -50% 0;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+        }
+        /*body {
+            display: flex;
+            background-image: url('/static/images/steps.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 300% 300%;
+            background-image: linear-gradient(-45deg, #3bade3 0%, #576fe6 25%, #9844b7 51%, #ff357f 100%);
+            -webkit-animation: AnimateBG 20s ease infinite;
+            animation: AnimateBG 20s ease infinite;
+        }*/
+        
+        @-webkit-keyframes AnimateBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .multi_step_form {
+            display: block;
+            min-width: 830px;
+            /*background-color: white !important;*/
+        }
+        
+        .form-signin {
+            padding: 5px;
+        }
+        
+        #user_uid,
+        #user_name {
+            width: 400px;
+            padding: 5px 10px;
+        }
+        
+        .buttonG {
+            padding: 15px 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="multi_step_form">
+        <div id="msform">
+            <!-- Tittle -->
+            <div class="tittle" style="font-family: 'Charm'; ">
+                <h1><b>KYC Verification Process</b></h1>
+
+            </div>
+            <div class="container">
+                <h2><strong> QR-Code Cross Verification</strong></h2>
+
+                <form class="form-signin" action="/scan-qr" method="POST">
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <br>
+                            <div>
+
+                                <b>Enter Aadhaar Number : </b>
+                                <br><br>
+                                <input type="text" name="user_uid" id="user_uid" />
+                                <br><br>
+                                <b>Enter Full Name (As in Aadhaar Card) : </b>
+                                <br><br>
+                                <input type="text" name="user_name" id="user_name" />
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <button type="submit" class="buttonG">VERIFY</button>
+                    <br>
+                </form>
+
+            </div>
+            <hr>
+            <div class="done_text">
+                <span><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></span>
+            </div>
+            <br>
+
+        </div>
+    </section>
+    <!-- End Multi step form -->
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
